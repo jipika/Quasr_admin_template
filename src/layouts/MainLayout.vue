@@ -39,6 +39,22 @@
                 <div>
                     <q-icon @click="$q.fullscreen.toggle()" name="fullscreen" size="sm"></q-icon>
                 </div>
+                <div>
+                    <q-btn color="white" flat>
+                        <q-avatar size="26px" class="q-mr-sm">
+                            <img src="https://cdn.quasar.dev/img/avatar.png" />
+                        </q-avatar>
+                        <span>admin</span>
+                        <q-menu>
+                            <q-list dense style="min-width: 100px">
+                                <q-item clickable v-close-popup class="flex flex-center">
+                                    <q-icon name="logout" size="xs" class="q-mr-sm" />
+                                    退出登录
+                                </q-item>
+                            </q-list>
+                        </q-menu>
+                    </q-btn>
+                </div>
             </q-toolbar>
         </q-header>
 
@@ -211,5 +227,8 @@ export default {
 .text-title {
     color: #fff;
     font-size: 18px;
+}
+::v-deep .q-page-sticky {
+    z-index: 9999;
 }
 </style>

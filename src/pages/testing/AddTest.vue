@@ -7,6 +7,26 @@
                 <q-select style="min-width: 200px" outlined dense v-model="name" label="学科" :options="options" />
                 <q-select style="min-width: 200px" outlined dense v-model="name" label="年级" :options="options" />
                 <q-select style="min-width: 200px" outlined dense v-model="name" label="题型" :options="options" />
+                <q-select
+                    style="min-width: 250px"
+                    outlined
+                    dense
+                    v-model="name"
+                    label="关联知识点"
+                    :options="options"
+                />
+                <q-input style="min-width: 200px" outlined dense v-model="name" label="试题难度（1-5，越大越难）" />
+                <q-input style="min-width: 200px" outlined dense v-model="name" label="试题区域(选填)" />
+                <q-input style="min-width: 200px" outlined dense v-model="name" label="试题年份(选填)" />
+                <q-select
+                    style="min-width: 200px"
+                    outlined
+                    dense
+                    v-model="name"
+                    label="试题类型(选填)"
+                    :options="options"
+                />
+                <q-input style="min-width: 250px" outlined dense v-model="name" label="试题来源(试卷)(选填)" />
             </div>
         </q-form>
 
@@ -19,8 +39,16 @@
             <Editor :height="250" />
         </div>
         <div class="q-mt-md">
-            <div class="q-mb-md text-accent">试题答案:</div>
+            <div class="q-mb-md text-accent">试题解答:</div>
             <Editor :height="250" />
+        </div>
+        <div class="q-mt-md">
+            <div class="q-mb-md text-accent">试题解析:</div>
+            <Editor :height="250" />
+        </div>
+        <div class="q-mt-md flex flex-center">
+            <q-btn label="确定" color="primary" />
+            <q-btn flat label="取消" color="primary" />
         </div>
     </div>
 </template>

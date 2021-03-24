@@ -1,11 +1,16 @@
 // import something here
 import mainRoute from 'src/router/mainRoute'
+import { LoadingBar } from 'quasar'
 // "async" is optional;
 // more info on params: https://quasar.dev/quasar-cli/boot-files
 export default async ({ router, store } /* { app, router, Vue ... } */) => {
     // something to do
+    LoadingBar.setDefaults({
+        color: 'positive'
+    })
     router.beforeEach((to, from, next) => {
         if (store.state.example.mainRoute.length > 0) {
+            LoadingBar.start()
             handleKeepAlive(to)
             next()
         } else {
@@ -13,6 +18,9 @@ export default async ({ router, store } /* { app, router, Vue ... } */) => {
             store.commit('example/set_roles', mainRoute)
             next({ ...to, replace: true })
         }
+    })
+    router.afterEach(() => {
+        LoadingBar.stop()
     })
 }
 /**

@@ -16,7 +16,7 @@
                 <q-btn size="sm" label="重置" type="reset" color="primary" flat class="q-ml-sm" />
             </div>
         </q-form>
-        <Tables :getItem="getItem" :columns="columns" slotName="body-cell-test_body">
+        <Tables :getItem="getItem" :columns="columns" slotName="body-cell-test_body" slotKey="test_body">
             <template v-slot:left-top>
                 <q-btn color="secondary" label="添加" :to="{ name: 'AddTest' }" size="sm" icon="add" />
                 <q-btn color="secondary" label="编辑" size="sm" icon="edit" />
@@ -25,7 +25,7 @@
                 <q-btn color="red" label="导出" size="sm" icon="upload" />
             </template>
             <template v-slot:operation="">
-                <q-btn color="secondary" size="sm" icon="edit" dense />
+                <q-btn color="secondary" size="sm" icon="edit" :to="{ name: 'AddTest' }" dense />
                 <q-btn color="negative" size="sm" icon="delete" dense />
             </template>
         </Tables>

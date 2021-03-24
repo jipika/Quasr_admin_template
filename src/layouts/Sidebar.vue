@@ -10,7 +10,6 @@
             :default-opened="open"
             :header-class="open ? 'heder' : ''"
             class="text-blue-grey-10"
-            :to="list.path"
         >
             <Sidebar v-for="(item, index) in list.children" :key="index" :list="item" tier />
         </q-expansion-item>

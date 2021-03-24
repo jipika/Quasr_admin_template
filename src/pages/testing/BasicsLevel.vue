@@ -69,7 +69,7 @@
                                 />
                             </template>
                             <template v-slot:operation="">
-                                <q-btn color="primary" size="sm" icon="add" dense />
+                                <q-btn color="primary" size="sm" icon="add" @click="confirm = !confirm" dense />
                                 <q-btn color="secondary" size="sm" icon="edit" dense />
                                 <q-btn color="negative" size="sm" icon="delete" dense />
                             </template>
@@ -78,13 +78,17 @@
                 </template>
             </q-splitter>
         </q-card>
+        <Confirm :confirm="confirm">
+            <q-select style="min-width: 400px" outlined dense v-model="name" label="等级一知识点" :options="options" />
+            <q-select style="min-width: 400px" outlined dense v-model="name" label="等级二知识点" :options="options" />
+        </Confirm>
     </div>
 </template>
 
 <script>
 import Tables from 'src/components/Tables.vue'
 // import引入的组件需要注入到对象中才能使用
-
+import Confirm from 'src/components/Confirm'
 export default {
     name: 'basicsLevel',
     data() {
@@ -136,6 +140,7 @@ export default {
                     ]
                 }
             ],
+            confirm: false,
             expanded: [],
             columns: [
                 {
@@ -160,7 +165,8 @@ export default {
         }
     },
     components: {
-        Tables
+        Tables,
+        Confirm
     },
     // 监听属性 类似于data概念
     computed: {},
